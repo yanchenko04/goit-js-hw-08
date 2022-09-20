@@ -16,7 +16,14 @@ refs.form.addEventListener('submit', onFormSumnit)
 refs.form.addEventListener('input', throttle(onFormInput, 500))
 
 function onFormInput(e){
-    formData[e.target.name] = e.target.value
+    e.preventDefault();
+
+    input: document.querySelector('.feedback-form input')
+     const emailInput = refs.input.value;
+     const messageInput = refs.textarea.value;
+
+    formData = { email: emailInput, message: messageInput }
+
     localStorage.setItem(STORAGE_KEY, JSON.stringify(formData))
     
 
